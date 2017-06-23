@@ -24,14 +24,14 @@ app.use(express.static(__dirname + "/public"));
 
 // 404 and 500
 app.use((req, res, next) => {
-  const notFoundError = new Error("Page not found");
-  notFoundError.status = 404;
-  next(notFoundError);
+    const notFoundError = new Error("Page not found");
+    notFoundError.status = 404;
+    next(notFoundError);
 });
 
 app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.send("There was an error: " + err.message);
+    res.status(err.status || 500);
+    res.send("There was an error: " + err.message);
 });
 
 module.exports = app;
