@@ -28,9 +28,9 @@
                         <div class="col s8">
                             <select>
                               <option value="" disabled selected>Activity</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                                {% for activity in templateActivities%}
+                                    <option value="{{activity.id}}">{{activity.name}}</option>
+                              {% endfor %}
                             </select>
                         </div>
                         <div class="col s2">
@@ -46,9 +46,9 @@
                         <div class="col s8">
                             <select>
                               <option value="" disabled selected>Hotel</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                              {% for hotel in templateHotels%}
+                              <option value="{{hotel.id}}">{{hotel.name}}</option>
+                              {% endfor %}
                             </select>
                         </div>
                          <div class="col s2">
@@ -64,9 +64,9 @@
                         <div class="col s8">
                             <select>
                               <option value="" disabled selected>Restaurant</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                                {% for restaurant in templateRestaurants%}
+                                    <option value="{{restaurant.id}}">{{restaurant.name}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                        <div class="col s2">
