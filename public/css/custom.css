@@ -22,3 +22,9 @@ input[type=text]:not(.browser-default), .select-wrapper input.select-dropdown {
 .btn-floating i {
     color: #26a69a;
 }
+
+
+nav .brand-logo.right {
+    right: 0.5rem;
+    padding-right: 5%;
+}
