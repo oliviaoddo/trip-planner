@@ -1,0 +1,24 @@
+body{
+     background-color: blue-grey lighten-2;
+}
+
+#toast-container {
+  top: auto !important;
+  right: 3%;
+  bottom: 10%;
+  left:auto !important;
+}
+
+.select-wrapper span.caret {
+    color: white;
+}
+
+
+input[type=text]:not(.browser-default), .select-wrapper input.select-dropdown {
+    border-bottom: 1px solid white;
+
+}
+
+.btn-floating i {
+    color: #26a69a;
+}

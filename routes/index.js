@@ -1,12 +1,13 @@
 const route = require("express").Router();
+const models = require('../models');
 
 route.get("/", (req, res) => {
-  res.render("index.html");
-});
+    var outerScopeContainer = {};
+    models.Hotel.findAll()
+    .then(function(hotels){
 
-route.post("/login", (req, res) => {
-  console.log(req.body);
-  res.send("ok");
+    })
+  res.render("index.html");
 });
 
 module.exports = route;
