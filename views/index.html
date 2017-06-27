@@ -26,54 +26,63 @@
                 <div class="card-content white-text">
                     <div class="row">
                         <div class="col s8">
-                            <select>
+       <!--                      <select>
                               <option value="" disabled selected>Activity</option>
                                 {% for activity in templateActivities%}
                                     <option value="{{activity.id}}">{{activity.name}}</option>
                               {% endfor %}
+                            </select> -->
+                            <select id="activity-options">
+                                <option value="" disabled selected>Activity</option>
                             </select>
                         </div>
                         <div class="col s2">
                             <input placeholder="Time" class="timepicker">
                         </div>
                         <div class="col s2">
-                            <a onclick="Materialize.toast('Activity added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
+                            <a id="activity-button" onclick="Materialize.toast('Activity added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
     "><i class="material-icons">add</i></a>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col s8">
-                            <select>
+<!--                             <select>
                               <option value="" disabled selected>Hotel</option>
                               {% for hotel in templateHotels%}
                               <option value="{{hotel.id}}">{{hotel.name}}</option>
                               {% endfor %}
+                            </select> -->
+                            <select id="hotel-options">
+                                <option value="" disabled selected>Hotel</option>
                             </select>
                         </div>
                          <div class="col s2">
                             <input placeholder="Time" class="timepicker">
                         </div>
                         <div class="col s2">
-                            <a onclick="Materialize.toast('Hotel added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal  white
+                            <a id="hotel-button" onclick="Materialize.toast('Hotel added!', 1000, 'rounded'); " class="btn-floating btn-small waves-effect waves-teal  white
     "><i class="material-icons">add</i></a>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col s8">
-                            <select>
+<!--                             <select>
                               <option value="" disabled selected>Restaurant</option>
                                 {% for restaurant in templateRestaurants%}
                                     <option value="{{restaurant.id}}">{{restaurant.name}}</option>
                                 {% endfor %}
+                            </select> -->
+                            <select id="restaurant-options">
+                                <option value="" disabled selected>Restaurant</option>
                             </select>
                         </div>
                        <div class="col s2">
                             <input placeholder="Time" class="timepicker">
                         </div>
                         <div class="col s2">
-                            <a onclick="Materialize.toast('Restaurant added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
+                            <a id="restaurant-button" onclick="Materialize.toast('Restaurant added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
     "><i class="material-icons">add</i></a>
                         </div>
                     </div>
@@ -82,19 +91,31 @@
             <div class="card  teal lighten-1">
                 <div class="card-content white-text">
                     <span class="card-title">Day</span>
-                    <input placeholder="Select" type="date" class="datepicker">
+                    <a id="day-button" onclick="Materialize.toast('Day added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
+    "><i class="material-icons">add</i></a>
+                    <!-- <input placeholder="Select" type="date" class="datepicker"> -->
+                    <div id="days-div"></div>
                     <ul class="collapsible" data-collapsible="expandable">
                         <li>
                           <div class="collapsible-header white black-text"><i class="material-icons">location_city</i>Hotel</div>
-                          <div class="collapsible-body white black-text"><span>Wall Street Inn 3:00pm</span></div>
+                          <div class="collapsible-body white black-text">
+                            <ul id="hotel-list">
+                            </ul>
+                        </div>
                         </li>
                         <li>
                           <div class="collapsible-header white black-text"><i class="material-icons">golf_course</i>Activities</div>
-                          <div class="collapsible-body white black-text"><span>Ground Zero 5:00pm</span></div>
+                          <div class="collapsible-body white black-text">
+                            <ul id="activity-list">
+                            </ul>
+                            </div>
                         </li>
                         <li>
                           <div class="collapsible-header white black-text"><i class="material-icons">restaurant</i>Restaurant</div>
-                          <div class="collapsible-body white black-text"><span>Bouley 7:00pm</span></div>
+                          <div class="collapsible-body white black-text">
+                            <ul id="restaurant-list">
+                            </ul>
+                          </div>
                         </li>
                     </ul>
 
@@ -104,26 +125,12 @@
         </div>
     </div>
 
+    <script src="js/map.js"></script>
     <script>
-        var map;
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: 40.7050,
-                    lng: -74.009
-                },
-                zoom: 16,
-                zoomControl: true,
-                scrollwheel: false
-            });
-        }
+      var hotels = {{ templateHotels | dump | safe }};
+      var restaurants = {{ templateRestaurants | dump | safe }};
+      var activities = {{ templateActivities | dump | safe }};
     </script>
-
-
-<!--         <div class="row">
-            <div class ="col m6" id="map"></div>
-        </div> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_ZZ8jN0msgHOId8p4rNEuUHwCaFNJNBI&callback=initMap" async defer></script>
+<!--     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdH7cLIXpsc8UzTFos7ATIjACMn2HlCdo&callback=initMap" async defer></script> -->
 
 {% endblock %}

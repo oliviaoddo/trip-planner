@@ -23,3 +23,4 @@ $('.timepicker').pickatime({
 $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+

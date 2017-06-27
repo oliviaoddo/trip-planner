@@ -3,14 +3,14 @@ const models = require('../models');
 
 route.get("/", (req, res, next) => {
     var outerScopeContainer = {};
-    models.Hotel.findAll()
+    models.Hotel.findAll({include: [models.Place]})
     .then(function (dbHotels) {
       outerScopeContainer.dbHotels = dbHotels;
-      return models.Restaurant.findAll();
+      return models.Restaurant.findAll({include: [models.Place]});
     })
     .then(function (dbRestaurants) {
       outerScopeContainer.dbRestaurants = dbRestaurants;
-      return models.Activity.findAll();
+      return models.Activity.findAll({include: [models.Place]});
     })
     .then(function (dbActivities) {
       res.render('index', {
