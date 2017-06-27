@@ -30,6 +30,7 @@ function initMap() {
 
     // console.log($('#hotel-list'));
     // console.log(hotels);
+    // console.log($('hotel-options').data.location);
     // drawMarker('hotel', [$('hotel-options').data.location.latitude, $('hotel-options').data.location.longitude]);
     drawMarker('restaurant', [40.705137, -74.013940]);
     drawMarker('activity', [40.716291, -73.995315]);

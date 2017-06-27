@@ -90,7 +90,7 @@
             </div>
             <div class="card  teal lighten-1">
                 <div class="card-content white-text">
-                    <span class="card-title">Day</span>
+                    <span class="card-title">Day</span><a id='day-delete' style='color:white'>X</a>
                     <a id="day-button" onclick="Materialize.toast('Day added!', 1000, 'rounded')" class="btn-floating btn-small waves-effect waves-teal white
     "><i class="material-icons">add</i></a>
                     <!-- <input placeholder="Select" type="date" class="datepicker"> -->
@@ -131,6 +131,6 @@
       var restaurants = {{ templateRestaurants | dump | safe }};
       var activities = {{ templateActivities | dump | safe }};
     </script>
-<!--     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdH7cLIXpsc8UzTFos7ATIjACMn2HlCdo&callback=initMap" async defer></script> -->
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdH7cLIXpsc8UzTFos7ATIjACMn2HlCdo&callback=initMap" async defer></script> 
 
 {% endblock %}
